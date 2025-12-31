@@ -1,0 +1,52 @@
+@Metadata.layer: #CORE
+
+
+@UI.headerInfo :
+{
+     typeName: 'Mantedor Sociedad RUT',
+     typeNamePlural: 'Mantedor Sociedad RUT',
+     title: {
+     type : #STANDARD,
+     label: 'Sociedad',
+     value: 'Sociedad'
+ }  }
+
+annotate entity zcsociedad_rut with
+{
+
+  @UI.facet      : [
+    {
+                      id:              'Sociedad',
+                      purpose:         #STANDARD,
+                      type:            #IDENTIFICATION_REFERENCE,
+                      label:           'Mantedor Sociedad RUT',
+                      position:        10
+                   }]
+
+  @UI.hidden: true
+  Uuid;
+
+  @Consumption.valueHelpDefinition: [{ entity : {name: 'I_CompanyCodeStdVH', element: 'CompanyCode'  }, useForValidation: true }]
+  @UI.selectionField : [ { position: 10 } ]
+  @EndUserText.label : 'Sociedad'
+  @UI                : {lineItem:       [ { position: 10,importance: #LOW,cssDefault.width: '6rem' }] }
+  @UI.identification: [{ position: 10 }]
+  Sociedad;
+
+  @UI.selectionField : [ { position: 20 } ]
+  @EndUserText.label : 'Rut'
+  @UI                : {lineItem:       [ { position: 20,importance: #LOW,cssDefault.width: '6rem' }] }
+  @UI.identification: [{ position: 20 }]
+  Rut;
+  @UI.hidden: true
+  CreatedBy;
+  @UI.hidden: true
+  CreatedAt;
+  @UI.hidden: true
+  LocalLastChangedBy;
+  @UI.hidden: true
+  LocalLastChangedAt;
+  @UI.hidden: true
+  LastChangedAt;
+
+}

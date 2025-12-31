@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service definition log factoring'
+define service ZUI_log_factoring {
+  expose ZCDS_LOG_FACTORING;
+}

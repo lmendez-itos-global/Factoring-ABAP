@@ -1,0 +1,31 @@
+managed implementation in class zbp_rsociedad_rut unique;
+strict ( 2 );
+
+define behavior for zrsociedad_rut //alias <alias_name>
+persistent table zsociedad_rut
+lock master
+authorization master ( instance )
+etag master LocalLastChangedAt
+
+{
+  field ( numbering : managed ) Uuid;
+  create ( authorization : global );
+  update;
+  delete;
+  field ( readonly ) Uuid, CreatedAt, CreatedBy, LastChangedAt, LocalLastChangedAt, LocalLastChangedBy;
+  field ( readonly : update ) Sociedad;
+
+ validation valiadar_sociedad on save { create; }
+
+  mapping for zsociedad_rut
+    {
+      Uuid               = uuid;
+      Sociedad           = sociedad;
+      Rut                = rut;
+      CreatedAt          = created_at;
+      CreatedBy          = created_by;
+      LastChangedAt      = last_changed_at;
+      LocalLastChangedAt = local_last_changed_at;
+      LocalLastChangedBy = local_last_changed_by;
+    }
+}

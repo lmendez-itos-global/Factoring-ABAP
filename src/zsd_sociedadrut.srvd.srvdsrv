@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service definition Sociedad Rut'
+define service ZSD_SOCIEDADRUT {
+  expose zcsociedad_rut;
+}
